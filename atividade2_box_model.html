@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2 — Desenvolvendo com Box Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 40px 20px;
+            color: #404040;
+        }
+
+        h1 {
+            color: #1f3864;
+            border-bottom: 3px solid #00b0f0;
+            padding-bottom: 10px;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        h2 {
+            color: #2e75b6;
+            max-width: 700px;
+            margin: 30px auto 10px auto;
+        }
+
+        p.descricao {
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            font-size: 14px;
+            background-color: #d6e4f0;
+            border-left: 4px solid #2e75b6;
+            padding: 12px 16px;
+            border-radius: 0 5px 5px 0;
+            color: #1f3864;
+        }
+
+        /* -----------------------------------------------
+           BOX MODEL — EXEMPLO 1 (box-sizing: content-box)
+           Comportamento padrão do CSS.
+           Largura total = width + padding*2 + border*2 + margin*2
+           = 200 + 40 + 4 + 60 = 304px
+        ----------------------------------------------- */
+        .box-content-box {
+            box-sizing: content-box; /* padrão */
+
+            width: 200px;       /* largura do CONTEÚDO */
+            height: 100px;      /* altura do CONTEÚDO */
+
+            padding: 20px;      /* espaço interno (entre conteúdo e borda) */
+            border: 2px solid #1f3864; /* borda ao redor do padding */
+            margin: 30px auto;  /* espaço externo (entre borda e outros elementos) */
+
+            background-color: #d6e4f0;
+            color: #1f3864;
+            font-weight: bold;
+            text-align: center;
+            line-height: 100px; /* centraliza o texto verticalmente */
+        }
+
+        /* -----------------------------------------------
+           BOX MODEL — EXEMPLO 2 (box-sizing: border-box)
+           O padding e a border são incluídos na width declarada.
+           Largura total = 200px (fixo) + margin*2 = 260px
+        ----------------------------------------------- */
+        .box-border-box {
+            box-sizing: border-box;
+
+            width: 200px;       /* largura TOTAL (inclui padding e border) */
+            height: 100px;
+
+            padding: 20px;
+            border: 2px solid #c0392b;
+            margin: 30px auto;
+
+            background-color: #fde8e8;
+            color: #c0392b;
+            font-weight: bold;
+            text-align: center;
+            line-height: 60px; /* ajustado pois padding reduz a área útil */
+        }
+
+        /* -----------------------------------------------
+           DIAGRAMA VISUAL DO BOX MODEL
+        ----------------------------------------------- */
+        .diagrama {
+            max-width: 420px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .camada-margin {
+            background-color: #ffeaa7;
+            border: 2px dashed #fdcb6e;
+            padding: 20px;
+            font-size: 12px;
+            color: #636e72;
+            position: relative;
+        }
+
+        .camada-border {
+            background-color: #b2bec3;
+            padding: 12px;
+            font-size: 12px;
+            color: #2d3436;
+        }
+
+        .camada-padding {
+            background-color: #81ecec;
+            padding: 16px;
+            font-size: 12px;
+            color: #2d3436;
+        }
+
+        .camada-content {
+            background-color: #74b9ff;
+            padding: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #1f3864;
+        }
+
+        .label-diagrama {
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .container-geral {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-geral">
+
+        <h1>Atividade 2 — Desenvolvendo com Box Model</h1>
+
+        <!-- DIAGRAMA VISUAL -->
+        <h2>Diagrama do Box Model</h2>
+        <p class="descricao">
+            Todo elemento HTML é composto por quatro camadas:
+            <strong>Margin</strong> (espaço externo) →
+            <strong>Border</strong> (borda) →
+            <strong>Padding</strong> (espaço interno) →
+            <strong>Content</strong> (conteúdo).
+        </p>
+
+        <div class="diagrama">
+            <div class="camada-margin">
+                <div class="label-diagrama">Margin (30px)</div>
+                <div class="camada-border">
+                    <div class="label-diagrama">Border (2px solid)</div>
+                    <div class="camada-padding">
+                        <div class="label-diagrama">Padding (20px)</div>
+                        <div class="camada-content">
+                            Content<br>200px × 100px
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXEMPLO 1: content-box -->
+        <h2>Exemplo 1 — box-sizing: content-box (padrão)</h2>
+        <p class="descricao">
+            Comportamento padrão do CSS. O <code>width: 200px</code> define apenas o conteúdo.
+            A largura total ocupada na página é:
+            200 (content) + 40 (padding) + 4 (border) + 60 (margin) = <strong>304px</strong>.
+        </p>
+
+        <!--
+            .box-content-box:
+            - width: 200px  → largura do conteúdo
+            - padding: 20px → espaço interno em todos os lados
+            - border: 2px   → borda ao redor
+            - margin: 30px  → afastamento externo
+        -->
+        <div class="box-content-box">
+            Conteúdo (200×100)
+        </div>
+
+        <!-- EXEMPLO 2: border-box -->
+        <h2>Exemplo 2 — box-sizing: border-box</h2>
+        <p class="descricao">
+            Com <code>box-sizing: border-box</code>, o <code>width: 200px</code> passa a incluir
+            o padding e a border. A largura total fica fixa em
+            200 (tudo incluso) + 60 (margin) = <strong>260px</strong>.
+            Muito usado em projetos modernos para facilitar o cálculo de layouts.
+        </p>
+
+        <!--
+            .box-border-box:
+            - width: 200px → largura TOTAL (padding + border já estão incluídos)
+            - Área útil de conteúdo = 200 - 40 (padding) - 4 (border) = 156px
+        -->
+        <div class="box-border-box">
+            Border-box (200px total)
+        </div>
+
+    </div>
+
+</body>
+</html>

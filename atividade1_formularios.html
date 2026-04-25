@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1 — Construção de Formulários em HTML e HTML5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            color: #404040;
+        }
+
+        h1 {
+            color: #1f3864;
+            border-bottom: 3px solid #00b0f0;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2e75b6;
+            margin-top: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+            color: #1f3864;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus {
+            border-color: #2e75b6;
+            outline: none;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #2e75b6;
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1f3864;
+        }
+
+        input[type="reset"] {
+            background-color: #cccccc;
+            color: #404040;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #aaaaaa;
+        }
+
+        .info-box {
+            background-color: #d6e4f0;
+            border-left: 4px solid #2e75b6;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            font-size: 13px;
+            color: #1f3864;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Atividade 1 — Formulários HTML e HTML5</h1>
+        <p class="info-box">
+            Formulário completo utilizando a tag &lt;form&gt; com os atributos <strong>action</strong> e <strong>method</strong>,
+            elementos de entrada de dados (<strong>&lt;input&gt;</strong>) e os novos tipos de campo do HTML5:
+            <em>email</em>, <em>tel</em> e <em>date</em>.
+        </p>
+
+        <!--
+            action: define para onde os dados serão enviados após o submit
+            method: define o método HTTP (GET ou POST)
+        -->
+        <form action="processar_formulario.php" method="post">
+
+            <!-- Campo de texto simples (HTML clássico) -->
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+
+            <!-- Campo de e-mail (HTML5) — valida formato automaticamente -->
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="exemplo@email.com">
+
+            <!-- Campo de telefone (HTML5) -->
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+
+            <!-- Campo de data (HTML5) — exibe calendário nativo do navegador -->
+            <label for="data">Data de Nascimento:</label>
+            <input type="date" id="data" name="data">
+
+            <!-- Botões de envio e limpeza -->
+            <div class="btn-group">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
