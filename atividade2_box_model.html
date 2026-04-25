@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,20 +45,27 @@
            = 200 + 40 + 4 + 60 = 304px
         ----------------------------------------------- */
         .box-content-box {
-            box-sizing: content-box; /* padrão */
+            box-sizing: content-box;
+            /* padrão */
 
-            width: 200px;       /* largura do CONTEÚDO */
-            height: 100px;      /* altura do CONTEÚDO */
+            width: 200px;
+            /* largura do CONTEÚDO */
+            height: 100px;
+            /* altura do CONTEÚDO */
 
-            padding: 20px;      /* espaço interno (entre conteúdo e borda) */
-            border: 2px solid #1f3864; /* borda ao redor do padding */
-            margin: 30px auto;  /* espaço externo (entre borda e outros elementos) */
+            padding: 20px;
+            /* espaço interno (entre conteúdo e borda) */
+            border: 2px solid #1f3864;
+            /* borda ao redor do padding */
+            margin: 30px auto;
+            /* espaço externo (entre borda e outros elementos) */
 
             background-color: #d6e4f0;
             color: #1f3864;
             font-weight: bold;
             text-align: center;
-            line-height: 100px; /* centraliza o texto verticalmente */
+            line-height: 100px;
+            /* centraliza o texto verticalmente */
         }
 
         /* -----------------------------------------------
@@ -68,7 +76,8 @@
         .box-border-box {
             box-sizing: border-box;
 
-            width: 200px;       /* largura TOTAL (inclui padding e border) */
+            width: 200px;
+            /* largura TOTAL (inclui padding e border) */
             height: 100px;
 
             padding: 20px;
@@ -79,7 +88,8 @@
             color: #c0392b;
             font-weight: bold;
             text-align: center;
-            line-height: 60px; /* ajustado pois padding reduz a área útil */
+            line-height: 60px;
+            /* ajustado pois padding reduz a área útil */
         }
 
         /* -----------------------------------------------
@@ -136,6 +146,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container-geral">
@@ -207,4 +218,5 @@
     </div>
 
 </body>
+
 </html>
